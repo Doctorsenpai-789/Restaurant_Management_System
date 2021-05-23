@@ -5,6 +5,8 @@
  */
 package restaurant;
 
+import java.awt.Color;
+import java.awt.Font;
 import java.sql.*;
 import java.util.Vector;
 import javax.swing.JOptionPane;
@@ -26,7 +28,18 @@ public class Product extends javax.swing.JInternalFrame {
         BasicInternalFrameUI bi = (BasicInternalFrameUI) this.getUI();
         bi.setNorthPane(null);
         data();
+        
+        table.getTableHeader().setFont(new Font("Leelawadee",Font.BOLD,12));
+        table.getTableHeader().setOpaque(false);
+        table.getTableHeader().setBackground(new Color(32,136,203));
+        table.getTableHeader().setForeground(new Color(255,255,255));
+        
+        
+        
     }
+    
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -81,6 +94,7 @@ public class Product extends javax.swing.JInternalFrame {
         btnDelete = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         table = new javax.swing.JTable();
+        jLabel1 = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(610, 400));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -90,59 +104,62 @@ public class Product extends javax.swing.JInternalFrame {
                 productnameActionPerformed(evt);
             }
         });
-        getContentPane().add(productname, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 20, 204, 38));
+        getContentPane().add(productname, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 30, 204, 38));
 
-        jLabel3.setFont(new java.awt.Font("Lucida Sans Typewriter", 2, 18)); // NOI18N
-        jLabel3.setText("ProductName:");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 20, 140, 30));
+        jLabel3.setFont(new java.awt.Font("Microsoft New Tai Lue", 1, 14)); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\2ndyrGroupA\\Downloads\\product-32.png")); // NOI18N
+        jLabel3.setText("MENU :");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 30, 110, 40));
 
-        jLabel4.setFont(new java.awt.Font("Lucida Sans Typewriter", 2, 18)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Microsoft Sans Serif", 1, 14)); // NOI18N
+        jLabel4.setIcon(new javax.swing.ImageIcon("C:\\Users\\2ndyrGroupA\\Downloads\\best-price-badge-32.png")); // NOI18N
         jLabel4.setText("Price:");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 70, 114, 37));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 80, 110, 40));
 
         productprice.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 productpriceActionPerformed(evt);
             }
         });
-        getContentPane().add(productprice, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 70, 204, 38));
+        getContentPane().add(productprice, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 80, 204, 38));
 
-        btnCreate.setBackground(new java.awt.Color(0, 204, 0));
-        btnCreate.setFont(new java.awt.Font("Leelawadee UI", 1, 18)); // NOI18N
+        btnCreate.setFont(new java.awt.Font("Leelawadee UI", 1, 14)); // NOI18N
+        btnCreate.setIcon(new javax.swing.ImageIcon("C:\\Users\\2ndyrGroupA\\Downloads\\add-list-32.png")); // NOI18N
         btnCreate.setText("ADD");
         btnCreate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCreateActionPerformed(evt);
             }
         });
-        getContentPane().add(btnCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 160, 98, 45));
+        getContentPane().add(btnCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 140, 130, -1));
 
-        btnUpdate.setBackground(new java.awt.Color(0, 102, 255));
-        btnUpdate.setFont(new java.awt.Font("Leelawadee UI", 1, 18)); // NOI18N
+        btnUpdate.setFont(new java.awt.Font("Leelawadee UI", 1, 14)); // NOI18N
+        btnUpdate.setIcon(new javax.swing.ImageIcon("C:\\Users\\2ndyrGroupA\\Downloads\\edit-property-32.png")); // NOI18N
         btnUpdate.setText("EDIT");
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnUpdateActionPerformed(evt);
             }
         });
-        getContentPane().add(btnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 160, 104, 45));
+        getContentPane().add(btnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 140, 130, 40));
 
-        btnDelete.setBackground(new java.awt.Color(204, 0, 0));
-        btnDelete.setFont(new java.awt.Font("Leelawadee UI", 1, 18)); // NOI18N
+        btnDelete.setFont(new java.awt.Font("Leelawadee UI", 1, 14)); // NOI18N
+        btnDelete.setIcon(new javax.swing.ImageIcon("C:\\Users\\2ndyrGroupA\\Downloads\\delete-32.png")); // NOI18N
         btnDelete.setText("DELETE");
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDeleteActionPerformed(evt);
             }
         });
-        getContentPane().add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 160, 111, 45));
+        getContentPane().add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 140, 120, 40));
 
+        table.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                " ID", "PRODUCT NAME", "PRODUCT PRICE"
+                " ID", "MENU", "PRICE"
             }
         ) {
             Class[] types = new Class [] {
@@ -153,6 +170,7 @@ public class Product extends javax.swing.JInternalFrame {
                 return types [columnIndex];
             }
         });
+        table.setGridColor(new java.awt.Color(255, 153, 102));
         table.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tableMouseClicked(evt);
@@ -160,7 +178,8 @@ public class Product extends javax.swing.JInternalFrame {
         });
         jScrollPane1.setViewportView(table);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 220, 443, 140));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 190, 443, 170));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -30, 620, 420));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -279,6 +298,7 @@ public class Product extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnCreate;
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnUpdate;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;

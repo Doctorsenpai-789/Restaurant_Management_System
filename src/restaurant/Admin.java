@@ -4,15 +4,15 @@ import java.sql.*;
 import javax.swing.border.Border;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
 
-
 public class Admin extends javax.swing.JFrame {
 
     public Admin() {
         initComponents();
-        
+        jDesktopPane2.removeAll();
+        Dashboard dashboard = new Dashboard();
+        jDesktopPane2.add(dashboard).setVisible(true);
     }
 
-   
     @SuppressWarnings("unchecked")
 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -31,13 +31,14 @@ public class Admin extends javax.swing.JFrame {
         setBackground(new java.awt.Color(51, 0, 51));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel2.setBackground(java.awt.Color.gray);
+        jPanel2.setBackground(new java.awt.Color(51, 51, 51));
 
-        jLabel1.setFont(new java.awt.Font("Trebuchet MS", 1, 36)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(240, 240, 240));
         jLabel1.setText("Welcome Admin");
 
-        logoutbtn.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        logoutbtn.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        logoutbtn.setForeground(new java.awt.Color(255, 255, 255));
         logoutbtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/restaurant/image/logout-32.png"))); // NOI18N
         logoutbtn.setText("Logout");
         logoutbtn.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -53,9 +54,9 @@ public class Admin extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(44, 44, 44)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 316, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 284, Short.MAX_VALUE)
                 .addComponent(logoutbtn)
-                .addContainerGap())
+                .addGap(69, 69, 69))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -82,14 +83,14 @@ public class Admin extends javax.swing.JFrame {
 
         getContentPane().add(jDesktopPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 80, 610, 390));
 
-        jPanel1.setBackground(new java.awt.Color(153, 153, 153));
+        jPanel1.setBackground(new java.awt.Color(255, 51, 0));
         jPanel1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jPanel1MouseClicked(evt);
             }
         });
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         jLabel2.setForeground(java.awt.Color.white);
         jLabel2.setText("DASHBOARD");
         jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -98,11 +99,11 @@ public class Admin extends javax.swing.JFrame {
             }
         });
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         jLabel5.setForeground(java.awt.Color.white);
         jLabel5.setText("PRODUCT");
 
-        saleslabel.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        saleslabel.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         saleslabel.setForeground(java.awt.Color.white);
         saleslabel.setText("SALES");
         saleslabel.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -131,30 +132,31 @@ public class Admin extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(69, 69, 69)
+                .addGap(63, 63, 63)
                 .addComponent(jLabel2)
-                .addGap(38, 38, 38)
+                .addGap(43, 43, 43)
                 .addComponent(jLabel5)
-                .addGap(37, 37, 37)
+                .addGap(42, 42, 42)
                 .addComponent(saleslabel)
-                .addContainerGap(206, Short.MAX_VALUE))
+                .addContainerGap(185, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 53, 120, 410));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 73, 120, 390));
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void saleslabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_saleslabelMouseClicked
-      // new sales().setVisible(true);
-      // this.setVisible(false);
-       
+
+        jDesktopPane2.removeAll();
+        Sales sales = new Sales();
+        jDesktopPane2.add(sales).setVisible(true);
     }//GEN-LAST:event_saleslabelMouseClicked
 
     private void logoutbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutbtnMouseClicked
-      new Login().setVisible(true);
-      dispose();
+        new Login().setVisible(true);
+        dispose();
     }//GEN-LAST:event_logoutbtnMouseClicked
 
     private void jPanel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MouseClicked
