@@ -598,10 +598,7 @@ public class Transaction extends javax.swing.JInternalFrame {
          DefaultTableModel model = (DefaultTableModel) table2.getModel();
             int selectedIndex = table2.getSelectedRow();
             int id = Integer.parseInt(model.getValueAt(selectedIndex, 0).toString());
-          //  String st = model.getValueAt(selectedIndex, 6).toString();
-            
-                
-                
+   
            try {
                 
 
@@ -613,7 +610,7 @@ public class Transaction extends javax.swing.JInternalFrame {
                 con = DriverManager.getConnection("jdbc:mysql://localhost:3306/restaurant_db", "root", "");
                 insert = con.prepareStatement("UPDATE orders SET total=? WHERE id=?");
 
-              //  insert.setString(1, productName);
+    
               
                 insert.setString(1,"paid");
                 insert.setInt(2, id);

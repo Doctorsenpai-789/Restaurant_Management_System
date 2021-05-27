@@ -6,6 +6,8 @@
 package restaurant;
 
 import javax.swing.plaf.basic.BasicInternalFrameUI;
+import java.sql.*;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -19,8 +21,49 @@ public class Dashboard extends javax.swing.JInternalFrame {
     public Dashboard() {
         initComponents();
         this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
-        BasicInternalFrameUI bi = (BasicInternalFrameUI)this.getUI();
+        BasicInternalFrameUI bi = (BasicInternalFrameUI) this.getUI();
         bi.setNorthPane(null);
+        sales();
+    }
+
+    Connection con;
+    PreparedStatement stmt,stmt1;
+
+    public void sales() {
+        int MILLIS_IN_DAY = 1000 * 60 * 60 * 24;
+        java.util.Date utilDate = new java.util.Date();
+        java.sql.Date todDate = new java.sql.Date(utilDate.getTime());
+        java.sql.Date prevDate = new java.sql.Date(utilDate.getTime() - MILLIS_IN_DAY);
+
+        try {
+
+            Class.forName("com.mysql.jdbc.Driver");
+            //con = DriverManager.getConnection("jdbc:mysql://192.168.0.2/torresRa", "torresRa", "ravenAccess");
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/restaurant_db", "root", "");
+            stmt = con.prepareStatement("SELECT sum(total) as grandTotal FROM orders WHERE created_at = ?");
+            stmt1 = con.prepareStatement("SELECT sum(total) as grandTotal FROM orders WHERE created_at = ?");
+            stmt.setDate(1, todDate);
+            stmt1.setDate(1, prevDate);
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                int saleToday = rs.getInt("grandTotal");
+                String salesTod = String.valueOf(saleToday);
+                salesToday.setText(salesTod);
+            }
+            
+            ResultSet rs1 = stmt1.executeQuery();
+            if (rs1.next()) {
+                int prev = rs1.getInt("grandTotal");
+                String prevSales = String.valueOf(prev);
+                salesToday.setText(prevSales);
+            }
+            
+            
+            con.close();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+
     }
 
     /**
@@ -34,10 +77,10 @@ public class Dashboard extends javax.swing.JInternalFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        salesToday = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        prevSales = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
@@ -76,8 +119,8 @@ public class Dashboard extends javax.swing.JInternalFrame {
         jLabel2.setText("SALES  ");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 40, 120, 50));
 
-        jLabel3.setText("19");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 110, -1, -1));
+        salesToday.setText("19");
+        getContentPane().add(salesToday, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 110, 30, 20));
 
         jLabel4.setIcon(new javax.swing.ImageIcon("C:\\Users\\2ndyrGroupA\\Downloads\\conference-32.png")); // NOI18N
         jLabel4.setText("   Customer");
@@ -86,8 +129,8 @@ public class Dashboard extends javax.swing.JInternalFrame {
         jLabel5.setText("Yesterday");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 140, -1, -1));
 
-        jLabel6.setText("19");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 140, -1, -1));
+        prevSales.setText("19");
+        getContentPane().add(prevSales, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 140, -1, -1));
 
         jLabel7.setText("38");
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 170, -1, -1));
@@ -201,14 +244,14 @@ public class Dashboard extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel prevSales;
+    private javax.swing.JLabel salesToday;
     // End of variables declaration//GEN-END:variables
 }
