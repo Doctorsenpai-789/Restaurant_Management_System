@@ -61,14 +61,14 @@ public class Admin extends javax.swing.JFrame {
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(22, Short.MAX_VALUE)
+                .addContainerGap(15, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(logoutbtn)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(19, 19, 19))
         );
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-8, 0, 740, -1));
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-8, 0, 740, 70));
 
         javax.swing.GroupLayout jDesktopPane2Layout = new javax.swing.GroupLayout(jDesktopPane2);
         jDesktopPane2.setLayout(jDesktopPane2Layout);
@@ -78,10 +78,10 @@ public class Admin extends javax.swing.JFrame {
         );
         jDesktopPane2Layout.setVerticalGroup(
             jDesktopPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 390, Short.MAX_VALUE)
+            .addGap(0, 400, Short.MAX_VALUE)
         );
 
-        getContentPane().add(jDesktopPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 80, 610, 390));
+        getContentPane().add(jDesktopPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 70, 610, 400));
 
         jPanel1.setBackground(new java.awt.Color(255, 51, 0));
         jPanel1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -90,7 +90,7 @@ public class Admin extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel2.setForeground(java.awt.Color.white);
         jLabel2.setText("DASHBOARD");
         jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -99,13 +99,13 @@ public class Admin extends javax.swing.JFrame {
             }
         });
 
-        jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel5.setForeground(java.awt.Color.white);
         jLabel5.setText("PRODUCT");
 
-        saleslabel.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
+        saleslabel.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         saleslabel.setForeground(java.awt.Color.white);
-        saleslabel.setText("SALES");
+        saleslabel.setText("TRANSACTION");
         saleslabel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 saleslabelMouseClicked(evt);
@@ -116,16 +116,14 @@ public class Admin extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jLabel2))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5)
-                            .addComponent(saleslabel, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(saleslabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -138,10 +136,10 @@ public class Admin extends javax.swing.JFrame {
                 .addComponent(jLabel5)
                 .addGap(42, 42, 42)
                 .addComponent(saleslabel)
-                .addContainerGap(185, Short.MAX_VALUE))
+                .addContainerGap(211, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 73, 120, 390));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 63, 120, 410));
 
         pack();
         setLocationRelativeTo(null);
@@ -150,7 +148,7 @@ public class Admin extends javax.swing.JFrame {
     private void saleslabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_saleslabelMouseClicked
 
         jDesktopPane2.removeAll();
-        Sales sales = new Sales();
+        Transaction sales = new Transaction();
         jDesktopPane2.add(sales).setVisible(true);
     }//GEN-LAST:event_saleslabelMouseClicked
 

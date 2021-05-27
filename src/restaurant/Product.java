@@ -95,6 +95,7 @@ public class Product extends javax.swing.JInternalFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         table = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
+        resetbtn = new javax.swing.JButton();
 
         setPreferredSize(new java.awt.Dimension(610, 400));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -131,7 +132,7 @@ public class Product extends javax.swing.JInternalFrame {
                 btnCreateActionPerformed(evt);
             }
         });
-        getContentPane().add(btnCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 140, 130, -1));
+        getContentPane().add(btnCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, 100, -1));
 
         btnUpdate.setFont(new java.awt.Font("Leelawadee UI", 1, 14)); // NOI18N
         btnUpdate.setIcon(new javax.swing.ImageIcon("C:\\Users\\2ndyrGroupA\\Downloads\\edit-property-32.png")); // NOI18N
@@ -141,7 +142,7 @@ public class Product extends javax.swing.JInternalFrame {
                 btnUpdateActionPerformed(evt);
             }
         });
-        getContentPane().add(btnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 140, 130, 40));
+        getContentPane().add(btnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 140, 120, 40));
 
         btnDelete.setFont(new java.awt.Font("Leelawadee UI", 1, 14)); // NOI18N
         btnDelete.setIcon(new javax.swing.ImageIcon("C:\\Users\\2ndyrGroupA\\Downloads\\delete-32.png")); // NOI18N
@@ -151,8 +152,9 @@ public class Product extends javax.swing.JInternalFrame {
                 btnDeleteActionPerformed(evt);
             }
         });
-        getContentPane().add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 140, 120, 40));
+        getContentPane().add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 140, 120, 40));
 
+        table.setBackground(new java.awt.Color(240, 240, 240));
         table.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -179,7 +181,17 @@ public class Product extends javax.swing.JInternalFrame {
         jScrollPane1.setViewportView(table);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 190, 443, 170));
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -30, 620, 420));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 70, 390));
+
+        resetbtn.setFont(new java.awt.Font("Leelawadee UI", 1, 14)); // NOI18N
+        resetbtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/restaurant/image/settings-13-32.png"))); // NOI18N
+        resetbtn.setText("RESET");
+        resetbtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                resetbtnActionPerformed(evt);
+            }
+        });
+        getContentPane().add(resetbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 140, 110, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -293,6 +305,12 @@ public class Product extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_productnameActionPerformed
 
+    private void resetbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetbtnActionPerformed
+      productname.setText(null);
+      productprice.setText(null);
+     
+    }//GEN-LAST:event_resetbtnActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCreate;
@@ -304,6 +322,7 @@ public class Product extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField productname;
     private javax.swing.JTextField productprice;
+    private javax.swing.JButton resetbtn;
     private javax.swing.JTable table;
     // End of variables declaration//GEN-END:variables
 }
