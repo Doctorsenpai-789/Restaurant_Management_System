@@ -11,7 +11,7 @@ package restaurant;
  */
 public class Restaurant {
     public static void main(String[] args) {
-        new Login().setVisible(true);
+        new Splash().setVisible(true);
         new Admin().setVisible(false);
     }
  

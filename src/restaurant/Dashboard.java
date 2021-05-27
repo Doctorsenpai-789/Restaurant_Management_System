@@ -24,6 +24,8 @@ public class Dashboard extends javax.swing.JInternalFrame {
         BasicInternalFrameUI bi = (BasicInternalFrameUI) this.getUI();
         bi.setNorthPane(null);
         sales();
+        pending();
+        deliverOrder();
     }
 
     Connection con;
@@ -34,35 +36,139 @@ public class Dashboard extends javax.swing.JInternalFrame {
         java.util.Date utilDate = new java.util.Date();
         java.sql.Date todDate = new java.sql.Date(utilDate.getTime());
         java.sql.Date prevDate = new java.sql.Date(utilDate.getTime() - MILLIS_IN_DAY);
-
+        System.out.println(todDate);
+        System.out.println(prevDate);
         try {
 
             Class.forName("com.mysql.jdbc.Driver");
             //con = DriverManager.getConnection("jdbc:mysql://192.168.0.2/torresRa", "torresRa", "ravenAccess");
             con = DriverManager.getConnection("jdbc:mysql://localhost:3306/restaurant_db", "root", "");
-            stmt = con.prepareStatement("SELECT sum(total) as grandTotal FROM orders WHERE created_at = ?");
-            stmt1 = con.prepareStatement("SELECT sum(total) as grandTotal FROM orders WHERE created_at = ?");
-            stmt.setDate(1, todDate);
-            stmt1.setDate(1, prevDate);
+            stmt = con.prepareStatement("SELECT sum(total) as grandTotal FROM orders WHERE created_at = '"+todDate+"'");
+           stmt1 = con.prepareStatement("SELECT sum(total) as grandTotal FROM orders WHERE created_at = '"+prevDate+"'");
+           
             ResultSet rs = stmt.executeQuery();
             if (rs.next()) {
+                
                 int saleToday = rs.getInt("grandTotal");
-                String salesTod = String.valueOf(saleToday);
-                salesToday.setText(salesTod);
+                System.out.println(Integer.toString(saleToday));
+                salesToday.setText(Integer.toString(saleToday));
             }
             
             ResultSet rs1 = stmt1.executeQuery();
-            if (rs1.next()) {
+            if (rs1.next() ) {
+                int saleToday = rs.getInt("grandTotal");
                 int prev = rs1.getInt("grandTotal");
-                String prevSales = String.valueOf(prev);
-                salesToday.setText(prevSales);
-            }
-            
+                int total = prev+saleToday;
+               
+                prevSales.setText(Integer.toString(prev));
+                
+               totalsales.setText(Integer.toString(total));
+           }
+           //   ResultSet rs2 = stmt.executeQuery();
+           
+           
+           
+           
             
             con.close();
         } catch (Exception e) {
             System.out.println(e.getMessage());
-        }
+       }
+
+    }
+    
+    
+    public void pending() {
+        int MILLIS_IN_DAY = 1000 * 60 * 60 * 24;
+        java.util.Date utilDate = new java.util.Date();
+        java.sql.Date todDate = new java.sql.Date(utilDate.getTime());
+        java.sql.Date prevDate = new java.sql.Date(utilDate.getTime() - MILLIS_IN_DAY);
+        System.out.println(todDate);
+        System.out.println(prevDate);
+        try {
+
+            Class.forName("com.mysql.jdbc.Driver");
+            //con = DriverManager.getConnection("jdbc:mysql://192.168.0.2/torresRa", "torresRa", "ravenAccess");
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/restaurant_db", "root", "");
+            stmt = con.prepareStatement("SELECT count(status) as pendingTotal FROM orders WHERE  status = 'pending' AND created_at = '"+todDate+"'");
+           stmt1 = con.prepareStatement("SELECT count(status) as pendingTotal FROM orders WHERE status = 'pending' AND created_at = '"+prevDate+"'");
+           
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                
+                int pending = rs.getInt("pendingTotal");
+                
+                System.out.println(Integer.toString(pending));
+                pendingToday.setText(Integer.toString(pending));
+            }
+            
+            ResultSet rs1 = stmt1.executeQuery();
+            if (rs1.next() ) {
+                int pending = rs.getInt("pendingTotal");
+                int prevs = rs1.getInt("pendingTotal");
+                int total = prevs+pending;
+               
+                pendingYesterday.setText(Integer.toString(prevs));
+                
+               result.setText(Integer.toString(total));
+           }
+           //   ResultSet rs2 = stmt.executeQuery();
+           
+           
+           
+           
+            
+            con.close();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+       }
+
+    }
+    
+       public void deliverOrder() {
+        int MILLIS_IN_DAY = 1000 * 60 * 60 * 24;
+        java.util.Date utilDate = new java.util.Date();
+        java.sql.Date todDate = new java.sql.Date(utilDate.getTime());
+        java.sql.Date prevDate = new java.sql.Date(utilDate.getTime() - MILLIS_IN_DAY);
+        System.out.println(todDate);
+        System.out.println(prevDate);
+        try {
+
+            Class.forName("com.mysql.jdbc.Driver");
+            //con = DriverManager.getConnection("jdbc:mysql://192.168.0.2/torresRa", "torresRa", "ravenAccess");
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/restaurant_db", "root", "");
+            stmt = con.prepareStatement("SELECT count(status) as deliverTotal FROM orders WHERE  status = 'delivered' AND created_at = '"+todDate+"'");
+           stmt1 = con.prepareStatement("SELECT count(status) as deliverTotal FROM orders WHERE  status = 'delivered' AND created_at = '"+prevDate+"'");
+           
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                
+                int deliverkaron = rs.getInt("deliverTotal");
+                
+                System.out.println(Integer.toString(deliverkaron));
+                deliverToday.setText(Integer.toString(deliverkaron));
+            }
+            
+            ResultSet rs1 = stmt1.executeQuery();
+            if (rs1.next() ) {
+                int deliverkaron = rs.getInt("deliverTotal");
+                int deliverkahapon = rs1.getInt("deliverTotal");
+                int total = deliverkahapon+deliverkaron;
+               
+                deliverYesterday.setText(Integer.toString(deliverkahapon));
+                
+               totalDeliver.setText(Integer.toString(total));
+           }
+           //   ResultSet rs2 = stmt.executeQuery();
+           
+           
+           
+           
+            
+            con.close();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+       }
 
     }
 
@@ -81,7 +187,7 @@ public class Dashboard extends javax.swing.JInternalFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         prevSales = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
+        totalsales = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jInternalFrame1 = new javax.swing.JInternalFrame();
@@ -94,37 +200,35 @@ public class Dashboard extends javax.swing.JInternalFrame {
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
-        jLabel19 = new javax.swing.JLabel();
+        pendingYes = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
-        jLabel21 = new javax.swing.JLabel();
+        pendingToday = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
-        jLabel24 = new javax.swing.JLabel();
+        pendingYesterday = new javax.swing.JLabel();
         jLabel25 = new javax.swing.JLabel();
         jLabel26 = new javax.swing.JLabel();
-        jLabel27 = new javax.swing.JLabel();
-        jLabel28 = new javax.swing.JLabel();
-        jLabel29 = new javax.swing.JLabel();
+        deliverToday = new javax.swing.JLabel();
+        deliverYesterday = new javax.swing.JLabel();
+        result = new javax.swing.JLabel();
         jLabel30 = new javax.swing.JLabel();
-        jLabel31 = new javax.swing.JLabel();
+        totalDeliver = new javax.swing.JLabel();
 
         setMinimumSize(new java.awt.Dimension(610, 400));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Monotype Corsiva", 1, 24)); // NOI18N
         jLabel1.setText("WELCOME ADMIN");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 240, 240, 50));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 230, 240, 50));
 
         jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\2ndyrGroupA\\Downloads\\sale-32.png")); // NOI18N
         jLabel2.setText("SALES  ");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 40, 120, 50));
-
-        salesToday.setText("19");
         getContentPane().add(salesToday, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 110, 30, 20));
 
-        jLabel4.setIcon(new javax.swing.ImageIcon("C:\\Users\\2ndyrGroupA\\Downloads\\conference-32.png")); // NOI18N
-        jLabel4.setText("   Customer");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 50, 110, -1));
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/restaurant/image/delivery-food-32.png"))); // NOI18N
+        jLabel4.setText("Deliver Order");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 50, 150, -1));
 
         jLabel5.setText("Yesterday");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 140, -1, -1));
@@ -132,8 +236,8 @@ public class Dashboard extends javax.swing.JInternalFrame {
         prevSales.setText("19");
         getContentPane().add(prevSales, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 140, -1, -1));
 
-        jLabel7.setText("38");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 170, -1, -1));
+        totalsales.setText("38");
+        getContentPane().add(totalsales, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 170, -1, -1));
 
         jLabel8.setText("Total");
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 170, -1, -1));
@@ -177,14 +281,14 @@ public class Dashboard extends javax.swing.JInternalFrame {
 
         getContentPane().add(jInternalFrame1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
-        jLabel19.setText("Yesterday");
-        getContentPane().add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 140, -1, -1));
+        pendingYes.setText("Yesterday");
+        getContentPane().add(pendingYes, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 140, -1, -1));
 
         jLabel20.setText("Total");
         getContentPane().add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 170, -1, -1));
 
-        jLabel21.setText("51");
-        getContentPane().add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 110, -1, -1));
+        pendingToday.setText("51");
+        getContentPane().add(pendingToday, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 110, -1, -1));
 
         jLabel22.setText("Today");
         getContentPane().add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 110, -1, -1));
@@ -192,8 +296,8 @@ public class Dashboard extends javax.swing.JInternalFrame {
         jLabel23.setText("Today");
         getContentPane().add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 110, -1, -1));
 
-        jLabel24.setText("23");
-        getContentPane().add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 140, -1, -1));
+        pendingYesterday.setText("23");
+        getContentPane().add(pendingYesterday, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 140, -1, -1));
 
         jLabel25.setText("Yesterday");
         getContentPane().add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 140, -1, -1));
@@ -201,26 +305,28 @@ public class Dashboard extends javax.swing.JInternalFrame {
         jLabel26.setText("Total");
         getContentPane().add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 170, -1, -1));
 
-        jLabel27.setText("60");
-        getContentPane().add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 100, -1, -1));
+        deliverToday.setText("60");
+        getContentPane().add(deliverToday, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 100, -1, -1));
 
-        jLabel28.setText("30");
-        getContentPane().add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 140, -1, -1));
+        deliverYesterday.setText("30");
+        getContentPane().add(deliverYesterday, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 140, -1, -1));
 
-        jLabel29.setText("74");
-        getContentPane().add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 170, -1, -1));
+        result.setText("74");
+        getContentPane().add(result, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 170, -1, -1));
 
         jLabel30.setText("Today");
         getContentPane().add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 100, -1, -1));
 
-        jLabel31.setText("90");
-        getContentPane().add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 170, -1, -1));
+        totalDeliver.setText("90");
+        getContentPane().add(totalDeliver, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 170, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel deliverToday;
+    private javax.swing.JLabel deliverYesterday;
     private javax.swing.JInternalFrame jInternalFrame1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -232,26 +338,24 @@ public class Dashboard extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
-    private javax.swing.JLabel jLabel27;
-    private javax.swing.JLabel jLabel28;
-    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel30;
-    private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel pendingToday;
+    private javax.swing.JLabel pendingYes;
+    private javax.swing.JLabel pendingYesterday;
     private javax.swing.JLabel prevSales;
+    private javax.swing.JLabel result;
     private javax.swing.JLabel salesToday;
+    private javax.swing.JLabel totalDeliver;
+    private javax.swing.JLabel totalsales;
     // End of variables declaration//GEN-END:variables
 }

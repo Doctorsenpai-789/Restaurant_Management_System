@@ -180,7 +180,7 @@ public class Product extends javax.swing.JInternalFrame {
         });
         jScrollPane1.setViewportView(table);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 190, 443, 170));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 190, 470, 170));
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 70, 390));
 
         resetbtn.setFont(new java.awt.Font("Leelawadee UI", 1, 14)); // NOI18N

@@ -24,60 +24,65 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="1" attributes="0">
-              <EmptySpace max="32767" attributes="0"/>
-              <Component id="paymentlabel" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="payment" min="-2" pref="77" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="84" max="-2" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="0" attributes="0">
+          <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                  <Component id="jScrollPane2" alignment="0" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jScrollPane1" min="-2" pref="194" max="-2" attributes="0"/>
-                          <Group type="102" attributes="0">
-                              <Component id="search" min="-2" pref="86" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="searchbtn" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
+                      <Component id="resetbtn" min="-2" pref="110" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="paymentbtn" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="payment" min="-2" pref="86" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabel4" alignment="1" min="-2" pref="85" max="-2" attributes="0"/>
-                                  <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jScrollPane1" min="-2" pref="194" max="-2" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <Component id="search" min="-2" pref="86" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="searchbtn" min="-2" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
-                              <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="productprice" max="32767" attributes="0"/>
-                                  <Component id="productname" max="32767" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <Group type="102" attributes="0">
-                              <Component id="jTextField3" min="-2" pref="101" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="quantitylbl1" min="-2" pref="92" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="jLabel4" alignment="1" min="-2" pref="85" max="-2" attributes="0"/>
+                                          <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="productprice" max="32767" attributes="0"/>
+                                          <Component id="productname" max="32767" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <Component id="jTextField3" min="-2" pref="101" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="quantitylbl1" min="-2" pref="92" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="tablenoTextField" max="32767" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="btnCreate" max="32767" attributes="0"/>
+                                  <Component id="Confirm" max="32767" attributes="0"/>
+                                  <Component id="btnDelete" max="32767" attributes="0"/>
+                                  <Component id="DELIVER" max="32767" attributes="0"/>
+                              </Group>
                           </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="tablenoTextField" max="32767" attributes="0"/>
-                          </Group>
+                          <Component id="jScrollPane2" alignment="0" min="-2" pref="574" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="btnCreate" max="32767" attributes="0"/>
-                          <Component id="Confirm" max="32767" attributes="0"/>
-                          <Component id="btnDelete" max="32767" attributes="0"/>
-                          <Component id="DELIVER" max="32767" attributes="0"/>
-                      </Group>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace min="0" pref="46" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -136,14 +141,15 @@
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="jScrollPane2" min="-2" pref="115" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+              <Component id="jScrollPane2" min="-2" pref="111" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="paymentlabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="payment" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                  <Component id="resetbtn" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="paymentbtn" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="payment" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="234" max="-2" attributes="0"/>
+              <EmptySpace pref="214" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -155,7 +161,7 @@
           <Font name="Microsoft New Tai Lue" size="14" style="1"/>
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\2ndyrGroupA\Downloads\product-32.png"/>
+          <Image iconType="3" name="/restaurant/image/purchase-order-32.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="MENU :"/>
       </Properties>
@@ -171,7 +177,7 @@
           <Font name="Microsoft Sans Serif" size="14" style="1"/>
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\2ndyrGroupA\Downloads\best-price-badge-32.png"/>
+          <Image iconType="3" name="/restaurant/image/sale-32.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Price:"/>
       </Properties>
@@ -187,7 +193,7 @@
           <Font name="Leelawadee UI" size="12" style="1"/>
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\2ndyrGroupA\Downloads\add-list-32.png"/>
+          <Image iconType="3" name="/restaurant/image/add-list-32.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="ADD"/>
       </Properties>
@@ -201,7 +207,7 @@
           <Font name="Leelawadee UI" size="12" style="1"/>
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\2ndyrGroupA\Downloads\waiter-32.png"/>
+          <Image iconType="3" name="/restaurant/image/waiter-32.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="DELIVER"/>
       </Properties>
@@ -215,7 +221,7 @@
           <Font name="Leelawadee UI" size="12" style="1"/>
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\2ndyrGroupA\Downloads\cancel-32.png"/>
+          <Image iconType="3" name="/restaurant/image/cancel-32.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="CANCEL"/>
       </Properties>
@@ -265,11 +271,6 @@
         </Component>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JTextField" name="payment">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="paymentActionPerformed"/>
-      </Events>
-    </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollPane2">
       <AuxValues>
         <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
@@ -339,25 +340,13 @@
         </Component>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JTextField" name="paymentlabel">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="14" style="1"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="PAYMENT"/>
-      </Properties>
-      <Events>
-        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="paymentlabelMouseClicked"/>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="paymentlabelActionPerformed"/>
-      </Events>
-    </Component>
     <Component class="javax.swing.JButton" name="Confirm">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Leelawadee UI" size="12" style="1"/>
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\2ndyrGroupA\Downloads\check-32.png"/>
+          <Image iconType="3" name="/restaurant/image/check-32.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="CONFIRM"/>
       </Properties>
@@ -405,6 +394,36 @@
       </Properties>
       <Events>
         <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="searchbtnMousePressed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="paymentbtn">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Leelawadee UI" size="14" style="1"/>
+        </Property>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/restaurant/image/list-ingredients-32.png"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="payment"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="paymentbtnActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="payment">
+    </Component>
+    <Component class="javax.swing.JButton" name="resetbtn">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Leelawadee UI" size="14" style="1"/>
+        </Property>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/restaurant/image/settings-13-32.png"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="RESET"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="resetbtnActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>
